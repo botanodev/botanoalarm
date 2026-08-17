@@ -1,4 +1,4 @@
-# botanoalarm-config
+# botanoalarm
 
 **Botano / 我的鬧鐘** 這支 App 對外公開的東西都放這裡。三個檔案：
 
@@ -30,8 +30,8 @@
 正本改完之後，用專案裡的轉檔腳本重新產生這一頁，**不要手改 HTML**（手改的話，下次跑腳本就會被蓋掉）。在 App 的專案目錄下執行：
 
 ```
-python tool/privacy_to_html.py doc/privacy_policy.md    ../botanoalarm-config/privacy.html
-python tool/privacy_to_html.py doc/privacy_policy_en.md ../botanoalarm-config/privacy-en.html
+python tool/privacy_to_html.py doc/privacy_policy.md    ../botanoalarm/privacy.html
+python tool/privacy_to_html.py doc/privacy_policy_en.md ../botanoalarm/privacy-en.html
 ```
 
 最後那個路徑換成你這個 repo 的實際位置。**兩行都要跑。**
@@ -42,8 +42,8 @@ python tool/privacy_to_html.py doc/privacy_policy_en.md ../botanoalarm-config/pr
 
 | 商店語言 | 要填的網址 |
 |---|---|
-| 繁體中文 | <https://tnth.github.io/botanoalarm-config/privacy.html> |
-| 英文 | <https://tnth.github.io/botanoalarm-config/privacy-en.html> |
+| 繁體中文 | <https://botanodev.github.io/botanoalarm/privacy.html> |
+| 英文 | <https://botanodev.github.io/botanoalarm/privacy-en.html> |
 
 ---
 
@@ -161,7 +161,7 @@ https://cdn.jsdelivr.net/gh/ruyut/TaiwanCalendar/data/2027.json
 用瀏覽器打開這個網址，看到的內容應該和你剛改的一樣：
 
 ```
-https://cdn.jsdelivr.net/gh/tnth/botanoalarm-config@main/holiday_config.json
+https://cdn.jsdelivr.net/gh/botanodev/botanoalarm@main/holiday_config.json
 ```
 
 **這正是 App 去抓的那個網址。** 打不開的話，使用者也抓不到。
@@ -176,7 +176,7 @@ https://cdn.jsdelivr.net/gh/tnth/botanoalarm-config@main/holiday_config.json
 所以**最慢一個多月**才會全部更新完。急不得，這個機制本來就是給「反正也不急」的問題用的。
 
 > 想跳過 jsDelivr 的 12 小時快取來確認自己改對了，可以看這個立即生效的網址（內容一樣）：
-> `https://raw.githubusercontent.com/tnth/botanoalarm-config/main/holiday_config.json`
+> `https://raw.githubusercontent.com/botanodev/botanoalarm/main/holiday_config.json`
 
 ---
 
