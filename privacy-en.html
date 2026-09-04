@@ -80,7 +80,7 @@
 <h2>In one sentence</h2>
 <p><strong>Everything you create in this app — alarms, schedule marks, notes — stays on your own phone. It is never uploaded to any server, and the developer cannot see it.</strong></p>
 <p>Only two outside services ever touch information from your device: Google&#x27;s advertising service (section 3) and payment processing when you buy membership (section 4). Neither of them receives your alarms or your schedule.</p>
-<p>One feature in this app is specific to Taiwan — automatic public holiday marking — and it is <strong>switched off by default outside Taiwan</strong>. See section 2.</p>
+<p>Holiday data is downloaded from public files, and nothing about you is sent when it is (section 2). Automatically <strong>marking</strong> holidays as days off works for Taiwan only, and is off by default everywhere else.</p>
 <h2>1. What you create</h2>
 <p>This includes:</p>
 <ul>
@@ -100,14 +100,22 @@
 </ul>
 <p>Either way, the developer never handles the file and never receives it.</p>
 <h2>2. Network connections</h2>
-<p>The app connects to the network in only three situations, and one of them will probably never apply to you:</p>
+<p>The app connects to the network in these situations:</p>
 <p><strong>(a) Loading ads</strong></p>
 <p>See the next section. This stops once you buy membership.</p>
-<p><strong>(b) Checking whether you have bought membership</strong></p>
+<p><strong>(b) Ad consent settings</strong></p>
+<p>Before any ad is loaded, the app asks Google whether users in your region must be asked for advertising consent first (the EU and the UK require this). The answer is based on <strong>your IP address</strong>; the app never reads your location and sends nothing else. A consent form appears only where one is required — elsewhere you will never see it. See section 3.</p>
+<p><strong>(c) Checking whether you have bought membership</strong></p>
 <p>A request to RevenueCat, described in section 4. It sends a random identifier, not anything about you personally.</p>
-<p><strong>(c) Taiwan&#x27;s public holiday calendar — only if you turn it on</strong></p>
-<p>This feature marks Taiwan&#x27;s national holidays and make-up workdays automatically. It is <strong>specific to Taiwan and switched off by default outside Taiwan</strong>, because holiday data for other countries is not available in this app.</p>
-<p>While it is off, <strong>no request of this kind is ever made</strong>. If you do turn it on, the app fetches a public static file, and <strong>nothing about you is sent</strong> — not your alarms, not your marks, not a device identifier, not your location. The setting stays visible everywhere, so you can turn it on if you happen to work to Taiwan&#x27;s calendar.</p>
+<p><strong>(d) Holiday data</strong></p>
+<p>Which source is used depends on the region you pick under <strong>Settings → Holiday region</strong>:</p>
+<ul>
+<li><strong>Taiwan</strong>: the government holiday calendar, used to mark national holidays and make-up workdays</li>
+<li><strong>Everywhere else</strong>: Google&#x27;s public holiday calendar, used for <strong>holiday names only</strong> (for example &quot;Christmas Day&quot;). Days are never marked as off automatically from this source.</li>
+</ul>
+<p>Both are public static files, and <strong>nothing about you is sent</strong> — not your alarms, not your marks, not a device identifier, not your location. As with any network request, Google&#x27;s copy sees your IP address, and the URL reveals which region you selected.</p>
+<p>The sync runs <strong>at most once every 30 days</strong>, and only while you have the app open.</p>
+<p>Settings has two switches (&quot;Show holiday names&quot; and &quot;Mark holidays as days off&quot;). <strong>With both switched off, no request of this kind is ever made</strong> — the app falls back to its built-in rules, and alarms are unaffected.</p>
 <h2>3. Third-party service: Google AdMob (advertising)</h2>
 <p>Users who have not bought membership see ads, served by <strong>Google AdMob</strong>.</p>
 <p>To deliver ads, Google accesses information on your device, which may include:</p>
@@ -160,7 +168,7 @@
 <tr><td>Foreground service</td><td>To keep playing the sound while ringing, without being reclaimed by the system</td></tr>
 <tr><td>Vibrate</td><td>To vibrate while ringing (can be turned off per alarm)</td></tr>
 <tr><td>Ignore battery optimisation</td><td>To stop power-saving features from disabling alarms</td></tr>
-<tr><td>Network</td><td>The three connections described in section 2</td></tr>
+<tr><td>Network</td><td>The connections described in section 2</td></tr>
 <tr><td>Read the audio file you choose</td><td>To read the file when you set a custom sound. The app only touches the <strong>one file you explicitly choose</strong>; it does not browse your music library</td></tr>
 <tr><td>Display over other apps</td><td>To show the ringing screen while you are using your phone. Without it, an alarm only appears as a notification that you must open to stop</td></tr>
 </tbody></table></div>
