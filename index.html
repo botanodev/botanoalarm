@@ -65,6 +65,12 @@
   .log { border-left: 3px solid var(--hair); padding-left: 16px; margin: 0; }
   .log dt { font-weight: 700; margin-top: 14px; }
   .log dd { margin: 0; color: var(--muted); font-size: .95rem; }
+  .log dd b { color: var(--ink); }
+  .soon {
+    font-size: .72rem; font-weight: 400; letter-spacing: .04em;
+    background: var(--hair); color: var(--muted);
+    padding: 2px 8px; vertical-align: middle; margin-left: 6px;
+  }
 
   footer {
     margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--hair);
@@ -156,6 +162,18 @@
 
 <h2>更新紀錄</h2>
 <dl class="log">
+  <dt>1.2.0 <span class="soon">準備上架</span></dt>
+  <dd>
+    <b>跳過整天</b>：一個班別如果設了好幾顆鬧鐘（起床一顆、出門一顆），
+    醒了之後不用一顆一顆按——按一次就把那天剩下的全部跳過。已經響過的那幾顆
+    不會被動到。<br>
+    主畫面重新整理過：最上面直接是下一次幾點響，底下多了一排「接下來七天」，
+    可以直接看到這幾天是什麼班，點一下就進行事曆。鬧鐘依班別分段，
+    同一個班的幾顆聚在一起。<br>
+    行事曆的班別選擇改成四個並排的筆刷，看得到全部選項（包含休假），
+    切換少按一次。<br>
+    修正：跳過一次之後，就算那個時間已經過了，按鈕還是停在「取消跳過」。
+  </dd>
   <dt>1.1.9</dt>
   <dd>
     修正購買時的訊息。付過費、重裝之後回來的人按下購買會自動還原權益，
