@@ -37,7 +37,13 @@ python tool/privacy_to_html.py doc/privacy_policy_en.md ../botanoalarm/privacy-e
 
 最後那個路徑換成你這個 repo 的實際位置。**兩行都要跑。**
 
-已知還有一次改動是排定要做的：**內購上線後**，要回頭確認第四節寫的 RevenueCat 行為與實際串接一致。
+~~已知還有一次改動是排定要做的：**內購上線後**，要回頭確認第四節寫的 RevenueCat 行為與實際串接一致。~~
+
+**2026-09-29 逐條比對完，第四節與實際串接一致，不需要改。** 比對的依據：`Purchases.configure` 沒有帶 App User ID（所以識別碼確實是匿名的）、全程沒有 `setAttributes` 或 `collectDeviceIdentifiers`（所以確實拿不到鬧鐘與班表）、退款走 `entitlements.active` 自動撤銷。
+
+> 留下兩個**沒有改**的觀察，日後若要潤稿再考慮：
+> 第四節「之所以需要這個服務，是為了讓購買還能還原」是簡化——跨裝置還原主要靠 Google Play 自己記得，RevenueCat 保存的是權益狀態。
+> 第二節 (a) 只點名 Google 會看到 IP，但節日設定檔走 jsdelivr／GitHub，那邊同樣看得到。
 
 網址。**Play Console 的隱私權政策只有一個欄位，不分商店語言**（2026-09-29
 實際確認）。這裡原本寫著「每個商店語言各自填一個」並附了一張表——**那是錯的**，
