@@ -1,12 +1,13 @@
 # botanoalarm
 
-**Botano / 我的鬧鐘** 這支 App 對外公開的東西都放這裡。三個檔案：
+**Botano / 我的鬧鐘** 這支 App 對外公開的東西都放這裡。四個檔案：
 
 | 檔案 | 是什麼 | 什麼時候要動它 |
 |---|---|---|
 | **[`holiday_config.json`](holiday_config.json)** | App 去哪裡抓台灣的放假資料 | 假日標記出問題時（見下） |
 | **[`privacy.html`](privacy.html)** | 隱私權政策網頁版（繁中） | App 的資料行為改變時 |
 | **[`privacy-en.html`](privacy-en.html)** | 隱私權政策網頁版（英文） | 同上，**兩份要一起改** |
+| **[`index.html`](index.html)** | App 的公開介紹頁與更新紀錄 | 有新版本、或功能有對外可見的改變時 |
 
 > ⚠️ **這個 repo 必須永遠公開、而且不能改名或刪除。**
 > `holiday_config.json` 的網址寫在 App 裡，兩份 `privacy` 的網址填在
@@ -38,12 +39,21 @@ python tool/privacy_to_html.py doc/privacy_policy_en.md ../botanoalarm/privacy-e
 
 已知還有一次改動是排定要做的：**內購上線後**，要回頭確認第四節寫的 RevenueCat 行為與實際串接一致。
 
-網址。**Play Console 的隱私權政策網址是每個商店語言各自填一個**，別填錯：
+網址。**Play Console 的隱私權政策只有一個欄位，不分商店語言**（2026-09-29
+實際確認）。這裡原本寫著「每個商店語言各自填一個」並附了一張表——**那是錯的**，
+而且害中文商店頁一直指向英文版那份。
 
-| 商店語言 | 要填的網址 |
-|---|---|
-| 繁體中文 | <https://botanodev.github.io/botanoalarm/privacy.html> |
-| 英文 | <https://botanodev.github.io/botanoalarm/privacy-en.html> |
+填這個：
+
+<https://botanodev.github.io/botanoalarm/privacy.html>
+
+**兩份頁面的最上面都有語言切換連結**（中文頁上寫「English」、英文頁上寫
+「繁體中文」），所以不論 Play 那欄填哪一份，另一份都在一次點擊之內。那個連結
+是 `tool/privacy_to_html.py` 產生的，不要手加。
+
+> 為什麼在意：中英文**不是互相翻譯，是兩份各自成立的文件**（見上）。台灣
+> 使用者拿到英文版，等於拿不到寫給他的那一份——那不只是體驗問題，隱私權政策
+> 是法遵文件。
 
 ---
 
